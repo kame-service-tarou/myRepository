@@ -1,0 +1,12 @@
+services:
+  challenge:
+    platform: linux/amd64
+    build: .
+    ports:
+      - ${PORT:-1337}:1337
+    environment:
+      - FLAG=Alpaca{REDACTED}
+    restart: unless-stopped
+    # User Mode Linux (UML) needs /dev/shm.
+    tmpfs:
+      - /dev/shm:rw,exec,size=64m
