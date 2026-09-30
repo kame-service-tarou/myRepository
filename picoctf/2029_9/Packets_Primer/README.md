@@ -23,5 +23,7 @@ ASCII欄にFlagの一部と思われる文字列が表示されていること�
 '追跡　→　TCPストリーム'
 を選択する。
 通信内容を確認し、Flagに該当する文字列を読み取る。
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 ## 知識
