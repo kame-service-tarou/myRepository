@@ -16,14 +16,14 @@ TCPの接続を確立するためのハンドシェイクと、実際にデー�
 ### 3.データ本体を確認する
 対象のパケットを選択し、画面下部のパケット詳細やバイト列の表示を確認する。
 ASCII欄にFlagの一部と思われる文字列が表示されていることを確認する。
-![alt text](image.png)
+<img src="image.png" width="500">
 
 ### 4.TCPストリームを確認する
 対象のパケットを右クリックし、
 '追跡　→　TCPストリーム'
 を選択する。
 通信内容を確認し、Flagに該当する文字列を読み取る。
-![alt text](image-1.png)
-![alt text](image-2.png)
+<img src="image-1.png" width="400">
+<img src="image-2.png" width="400">
 
 ## 知識
