@@ -23,7 +23,7 @@ ASCII欄にFlagの一部と思われる文字列が表示されていること�
 '追跡　→　TCPストリーム'
 を選択する。
 通信内容を確認し、Flagに該当する文字列を読み取る。
-<img src="image-1.png" width="400">
-<img src="image-2.png" width="400">
+<img src="image-1.png" width="400" height="500">
+<img src="image-2.png" width="400" height="500">
 
 ## 知識
