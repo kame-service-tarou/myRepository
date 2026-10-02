@@ -1,0 +1,24 @@
+services:
+  app:
+    build: ./app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-1337}:1337"
+    networks:
+      ctfnet: {}
+
+  server:
+    build: ./server
+    restart: unless-stopped
+    environment:
+      FLAG: "Alpaca{REDACTED}"
+    networks:
+      ctfnet:
+        ipv4_address: 10.99.99.99 # REDACTED. Different on remote. Can you guess the IP?
+
+networks:
+  ctfnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/8
