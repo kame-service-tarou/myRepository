@@ -139,4 +139,3 @@ Destination IP
 |Transmission Control Protocol|データが正しく届いたか確認しながら通信する方式|
 |Internet Group Management Protocol|IPv4のマルチキャスト通信を管理するプロトコル|
 |Address Resolution Protocol|IPアドレスからMACアドレスを調べるプロトコル|
-私の名前は江上漣太郎
