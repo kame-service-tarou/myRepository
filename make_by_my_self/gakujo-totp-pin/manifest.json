@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Gakujo TOTP (PIN)",
+  "version": "0.1.1",
+  "description": "自分で決めた PIN で学務情報システムのワンタイムコードを自動入力します(個人用)。",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "認証コードを入力" }
+}

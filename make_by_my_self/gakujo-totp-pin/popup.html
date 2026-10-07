@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>認証コード</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b2430; --bg:#f6f7f9; --ac:#0b5cad; --mut:#5c6673; --err:#b3261e; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e6e9ee; --bg:#171b21; --ac:#6fb1f2; --mut:#9aa5b1; --err:#f2b8b5; } }
+  body { margin:0; padding:20px; background:var(--bg); color:var(--fg);
+         font:14px/1.6 "Hiragino Sans","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif; }
+  h1 { font-size:16px; margin:0 0 12px; }
+  p { margin:0 0 12px; color:var(--mut); }
+  label { display:block; margin:10px 0 4px; }
+  textarea, input { width:100%; box-sizing:border-box; font:14px ui-monospace,Consolas,monospace;
+             background:transparent; color:inherit; border:1px solid var(--mut); border-radius:6px; padding:8px; }
+  textarea { height:64px; }
+  button { font:inherit; padding:10px 16px; border-radius:6px; border:1px solid var(--ac);
+           background:var(--ac); color:#fff; cursor:pointer; }
+  @media (prefers-color-scheme: dark) { button { color:#0b1220; } }
+  button.sub { background:transparent; color:var(--ac); }
+  button:focus-visible, textarea:focus-visible, input:focus-visible { outline:2px solid var(--ac); outline-offset:2px; }
+  button:disabled { opacity:.6; cursor:wait; }
+  #code { font:600 34px ui-monospace,Consolas,monospace; letter-spacing:.15em; margin:8px 0 16px; }
+  #msg { min-height:1.6em; margin-top:12px; }
+  #msg.err { color:var(--err); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+  <section id="setup" hidden>
+    <h1>最初の設定</h1>
+    <p>学務情報システムの QR コードの下にある「セットアップキー」と、この拡張で使う PIN を決めて入力してください。</p>
+    <label for="secret">セットアップキー</label>
+    <textarea id="secret" placeholder="例: JBSWY3DPEHPK3PXP" spellcheck="false"></textarea>
+    <label for="pin1">新しい PIN(6文字以上。長いほど安全)</label>
+    <input id="pin1" type="password" autocomplete="new-password">
+    <label for="pin2">PIN をもう一度</label>
+    <input id="pin2" type="password" autocomplete="new-password">
+    <div class="row"><button id="register">登録する</button></div>
+  </section>
+
+  <section id="main" hidden>
+    <h1>学務情報システム</h1>
+    <div id="code" aria-live="polite">------</div>
+    <label for="pin">PIN</label>
+    <input id="pin" type="password" autocomplete="current-password">
+    <div class="row">
+      <button id="fill">コードを入力</button>
+      <button id="reset" class="sub">登録を削除</button>
+    </div>
+  </section>
+
+  <div id="msg" role="status"></div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
