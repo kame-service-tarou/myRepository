@@ -57,7 +57,7 @@ void setup() {
 ![alt text](image-3.png)
 
 ```stack```の```rsp```のアドレスに自分が入力した値が入ってることが分かる。
-自分の値が入ったことを確認したら```stack 30```とコマンドをうち、```rsp```から```rbp```までのスタックがどのくらい積まれているのかを確認する。
+自分の値が入ったことを確認したら```stack 30```とコマンドをうち、```rsp```から```rbp```までのスタックがどのくらい積まれているのかを確認すれいいのかな。知らんけど
 ![alt text](image-4.png)
 見たところ何となくだけど**0x50**積まれていることが分かった。
 だから自分が作ったsolverは、以下の通りです。
@@ -110,14 +110,11 @@ if __name__ == "__main__":
 
 ```mermaid
 flowchart TB
-    subgraph Stack["スタック (hello関数) — 高位アドレス ↑ 低位アドレス ↓"]
-        direction TB
-        RET["リターンアドレス (8 bytes)"]
-        RBP["saved RBP (8 bytes)"]
-        BUF["name バッファ (0x50 bytes)"]
-        RET --> RBP --> BUF
-    end
-    PAY1["pack(0x4011b6) → win()で上書き"] -.-> RET
-    PAY2["b'a' * 0x8 → padding"] -.-> RBP
-    PAY3["b'a' * 0x50 → バッファを埋める"] -.-> BUF
+    BUF["name バッファ (0x50 bytes)"]
+    RBP["saved RBP (8 bytes)"]
+    RET["リターンアドレス (8 bytes)"]
+    RSP["rsp → scanf書込み開始"] -.-> BUF
+    BUF --> RBP
+    RBP --> RET
+    RBPLABEL["rbp → バッファ境界"] -.-> RBP
 ```
