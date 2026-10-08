@@ -108,3 +108,16 @@ if __name__ == "__main__":
 
 ## 4.自分の頭の中
 
+```mermaid
+flowchart TB
+    subgraph Stack["スタック (hello関数) — 高位アドレス ↑ 低位アドレス ↓"]
+        direction TB
+        RET["リターンアドレス (8 bytes)"]
+        RBP["saved RBP (8 bytes)"]
+        BUF["name バッファ (0x50 bytes)"]
+        RET --> RBP --> BUF
+    end
+    PAY1["pack(0x4011b6) → win()で上書き"] -.-> RET
+    PAY2["b'a' * 0x8 → padding"] -.-> RBP
+    PAY3["b'a' * 0x50 → バッファを埋める"] -.-> BUF
+```

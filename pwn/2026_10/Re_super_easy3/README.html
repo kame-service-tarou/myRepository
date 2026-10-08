@@ -179,6 +179,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="自分の頭の中" class="level2">
 <h2 class="anchored" data-anchor-id="自分の頭の中">4.自分の頭の中</h2>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Stack["スタック (hello関数) — 高位アドレス ↑ 低位アドレス ↓"]
+        direction TB
+        RET["リターンアドレス (8 bytes)"]
+        RBP["saved RBP (8 bytes)"]
+        BUF["name バッファ (0x50 bytes)"]
+        RET --&gt; RBP --&gt; BUF
+    end
+    PAY1["pack(0x4011b6) → win()で上書き"] -.-&gt; RET
+    PAY2["b'a' * 0x8 → padding"] -.-&gt; RBP
+    PAY3["b'a' * 0x50 → バッファを埋める"] -.-&gt; BUF</code></pre>
 </section>
 </section>
 
