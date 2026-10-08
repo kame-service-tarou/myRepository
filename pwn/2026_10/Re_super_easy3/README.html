@@ -134,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>入ったら<code>ni</code>コマンドを使って<code>RIP</code>という次に実行する命令のアドレスが入るレジスタに注目する。 <img src="image-1.png" class="img-fluid" alt="alt text"></p>
 <p>この<code>RIP</code>に<code>scanf()</code>が読み込まれるところまで進めます。 <img src="image-2.png" class="img-fluid" alt="alt text"></p>
 <p>次に<code>ni</code>を押すと以下のように、 <img src="image-3.png" class="img-fluid" alt="alt text"></p>
-<p><code>stack</code>の<code>rsp</code>のアドレスに自分が入力した値が入ってることが分かる。 自分の値が入ったことを確認したら<code>stack 30</code>とコマンドをうち、<code>rsp</code>から<code>rbp</code>までのスタックがどのくらい積まれているのかを確認する。 <img src="image-4.png" class="img-fluid" alt="alt text"> 見たところ何となくだけど<strong>0x50</strong>積まれていることが分かった。 だから自分が作ったsolverは、以下の通りです。</p>
+<p><code>stack</code>の<code>rsp</code>のアドレスに自分が入力した値が入ってることが分かる。 自分の値が入ったことを確認したら<code>stack 30</code>とコマンドをうち、<code>rsp</code>から<code>rbp</code>までのスタックがどのくらい積まれているのかを確認すれいいのかな。知らんけど <img src="image-4.png" class="img-fluid" alt="alt text"> 見たところ何となくだけど<strong>0x50</strong>積まれていることが分かった。 だから自分が作ったsolverは、以下の通りです。</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pwn <span class="im">import</span> <span class="op">*</span></span>
@@ -180,16 +180,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="自分の頭の中" class="level2">
 <h2 class="anchored" data-anchor-id="自分の頭の中">4.自分の頭の中</h2>
 <pre class="mermaid"><code>flowchart TB
-    subgraph Stack["スタック (hello関数) — 高位アドレス ↑ 低位アドレス ↓"]
+    subgraph Stack[" "]
         direction TB
-        RET["リターンアドレス (8 bytes)"]
-        RBP["saved RBP (8 bytes)"]
-        BUF["name バッファ (0x50 bytes)"]
-        RET --&gt; RBP --&gt; BUF
+        BUF["name バッファ&lt;br/&gt;(0x50 bytes)"]
+        RBP["saved RBP&lt;br/&gt;(8 bytes)"]
+        RET["リターンアドレス&lt;br/&gt;(8 bytes)"]
+        BUF --&gt; RBP --&gt; RET
     end
-    PAY1["pack(0x4011b6) → win()で上書き"] -.-&gt; RET
-    PAY2["b'a' * 0x8 → padding"] -.-&gt; RBP
-    PAY3["b'a' * 0x50 → バッファを埋める"] -.-&gt; BUF</code></pre>
+    RSP(["rsp"]) -.-&gt; BUF
+    RBPLABEL(["rbp"]) -.-&gt; RBP</code></pre>
 </section>
 </section>
 

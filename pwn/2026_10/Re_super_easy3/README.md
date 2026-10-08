@@ -110,11 +110,13 @@ if __name__ == "__main__":
 
 ```mermaid
 flowchart TB
-    BUF["name バッファ (0x50 bytes)"]
-    RBP["saved RBP (8 bytes)"]
-    RET["リターンアドレス (8 bytes)"]
-    RSP["rsp → scanf書込み開始"] -.-> BUF
-    BUF --> RBP
-    RBP --> RET
-    RBPLABEL["rbp → バッファ境界"] -.-> RBP
+    subgraph Stack[" "]
+        direction TB
+        BUF["name バッファ<br/>(0x50 bytes)"]
+        RBP["saved RBP<br/>(8 bytes)"]
+        RET["リターンアドレス<br/>(8 bytes)"]
+        BUF --> RBP --> RET
+    end
+    RSP(["rsp"]) -.-> BUF
+    RBPLABEL(["rbp"]) -.-> RBP
 ```
