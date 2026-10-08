@@ -113,29 +113,29 @@ Destination IP
 
 **一番見るべきなのはパケット数**
 一回何が何なのかわからないから上から順に書き出してみる。
-|プロトコル|内容|
-|---|---|
-|Frame|Wiresharkが記録した1回分のデータ|
-|Ethernet|LAN内でデータを送るための通信規格|
-|Link Layer Discovery Protocol|ネットワーク機器同士が、自分の情報を知らせるためのプロトコル|
-|Internet Protocol Version 6|IPv6アドレスを使って通信するための仕組み|
-|User Datagram Protocol|データを素早く送る通信方式|
-|Simple Service Discovery Protocol|ネットワーク上の機器やサービスを探すためのプロトコル|
-|Multicast Domain Name System|同じネットワーク内で機器名などの名前解決する仕組み|
-|Link-local Multicast Name Resolution|同じネットワーク内でコンピュータ名をIPアドレスに変換するための仕組み|
-|eXtensible Markup Language|データを構造化して表現するための形式|
-|Internet Control Message Protocol v6|IPv6の通信状態の確認やエラー通知などに使われるプロトコル|
-|Internet Protocol Version 4|IPv4アドレスを使って通信するための仕組み|
-|User Datagram Protocol|データを素早く送る通信方式|
-|NetBIOS Datagram Service|ネットワーク上の機器やサービスを探すためのプロトコル|
-|SMB (Server Message Block Protocol)|Windowsネットワークなどでデータグラムを送るための仕組み|
-|SMB MailSlot Protocol|ファイルやプリンターなどをネットワーク越しに共有するためのプロトコル|
-|Microsoft Windows Browser Protocol|Windowsネットワーク上のコンピュータを発見するためのプロトコル|
-|Multicast Domain Name System|同じネットワーク内で機器名などを名前解決する仕組み|
-|Malformed Packet|正常な形式として解析できなかったパケット|
-|Link-local Multicast Name Resolution|同じネットワーク内で名前解決を行う仕組み|
-|eXtensible Markup Language|データを構造化して表現するための形式|
-|Data|特定のプロトコルとして判別できなかったデータ|
-|Transmission Control Protocol|データが正しく届いたか確認しながら通信する方式|
-|Internet Group Management Protocol|IPv4のマルチキャスト通信を管理するプロトコル|
-|Address Resolution Protocol|IPアドレスからMACアドレスを調べるプロトコル|
+| プロトコル | 内容 |
+| --- | --- |
+| Frame | Wiresharkが記録した1回分のデータ |
+| Ethernet | LAN内でデータを送るための通信規格 |
+| Link Layer Discovery Protocol | ネットワーク機器同士が、自分の情報を知らせるためのプロトコル |
+| Internet Protocol Version 6 | IPv6アドレスを使って通信するための仕組み |
+| User Datagram Protocol | データを素早く送る通信方式 |
+| Simple Service Discovery Protocol | ネットワーク上の機器やサービスを探すためのプロトコル |
+| Multicast Domain Name System | 同じネットワーク内で機器名などの名前解決する仕組み |
+| Link-local Multicast Name Resolution | 同じネットワーク内でコンピュータ名をIPアドレスに変換するための仕組み |
+| eXtensible Markup Language | データを構造化して表現するための形式 |
+| Internet Control Message Protocol v6 | IPv6の通信状態の確認やエラー通知などに使われるプロトコル |
+| Internet Protocol Version 4 | IPv4アドレスを使って通信するための仕組み |
+| User Datagram Protocol | データを素早く送る通信方式 |
+| NetBIOS Datagram Service | ネットワーク上でNetBIOSのデータグラム通信を行うための仕組み |
+| SMB (Server Message Block Protocol) | Windowsネットワークなどでファイルやプリンターなどを共有するためのプロトコル |
+| SMB MailSlot Protocol | SMB上でメッセージを送受信するための仕組み |
+| Microsoft Windows Browser Protocol | Windowsネットワーク上のコンピュータを発見するためのプロトコル |
+| Multicast Domain Name System | 同じネットワーク内で機器名などを名前解決する仕組み |
+| Malformed Packet | 正常な形式として解析できなかったパケット |
+| Link-local Multicast Name Resolution | 同じネットワーク内で名前解決を行う仕組み |
+| eXtensible Markup Language | データを構造化して表現するための形式 |
+| Data | 特定のプロトコルとして判別できなかったデータ |
+| Transmission Control Protocol | データが正しく届いたか確認しながら通信する方式 |
+| Internet Group Management Protocol | IPv4のマルチキャスト通信を管理するプロトコル |
+| Address Resolution Protocol | IPアドレスからMACアドレスを調べるプロトコル |
