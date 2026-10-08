@@ -1,0 +1,8 @@
+services:
+  pwn:
+    build: .
+    ports:
+      - "11350:1337"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
