@@ -112,21 +112,5 @@ if __name__ == "__main__":
 ## 4.自分の頭の中
 
 ```mermaid
-flowchart TB
-    subgraph Stack["Stack"]
-        direction TB
-        BUF["name バッファ<br/>80 bytes (0x50)"]
-        RBP["saved RBP<br/>8 bytes"]
-        RET["リターンアドレス<br/>8 bytes"]
 
-        BUF ~~~ RBP
-        RBP ~~~ RET
-    end
-
-    RSP["rsp"] -.-> BUF
-    RBPLABEL["rbp"] -.-> RBP
-
-    style BUF width:240px
-    style RBP width:240px
-    style RET width:240px
 ```
