@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
 ## 4.自分の頭の中
 
-```{mermaid}
+```mermaid
 flowchart TB
     subgraph Stack["Stack"]
         direction TB
