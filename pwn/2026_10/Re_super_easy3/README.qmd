@@ -1,4 +1,7 @@
-# Re_super_easy3のwriteup
+---
+title: "Re_super_easy3のwriteup"
+format: html
+---
 ## 1.問題を解く前に
 
 ```tar -xvf [ファイル名]```でtarで圧縮されたファイルを解凍する。
@@ -108,15 +111,22 @@ if __name__ == "__main__":
 
 ## 4.自分の頭の中
 
-```mermaid
+```{mermaid}
 flowchart TB
-    subgraph Stack[" "]
+    subgraph Stack["Stack"]
         direction TB
-        BUF["name バッファ<br/>(0x50 bytes)"]
-        RBP["saved RBP<br/>(8 bytes)"]
-        RET["リターンアドレス<br/>(8 bytes)"]
-        BUF --> RBP --> RET
+        BUF["name バッファ<br/>80 bytes (0x50)"]
+        RBP["saved RBP<br/>8 bytes"]
+        RET["リターンアドレス<br/>8 bytes"]
+
+        BUF ~~~ RBP
+        RBP ~~~ RET
     end
-    RSP(["rsp"]) -.-> BUF
-    RBPLABEL(["rbp"]) -.-> RBP
+
+    RSP["rsp"] -.-> BUF
+    RBPLABEL["rbp"] -.-> RBP
+
+    style BUF width:240px
+    style RBP width:240px
+    style RET width:240px
 ```

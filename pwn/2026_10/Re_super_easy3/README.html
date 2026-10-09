@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>readme</title>
+<title>Re_super_easy3のwriteup</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -85,11 +85,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Re_super_easy3のwriteup</h1>
+</div>
 
 
 
-<section id="re_super_easy3のwriteup" class="level1">
-<h1>Re_super_easy3のwriteup</h1>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <section id="問題を解く前に" class="level2">
 <h2 class="anchored" data-anchor-id="問題を解く前に">1.問題を解く前に</h2>
 <p><code>tar -xvf [ファイル名]</code>でtarで圧縮されたファイルを解凍する。 <code>pwninit</code>ですでにテンプレートがあるsolve.pyを作る。</p>
@@ -180,16 +194,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="自分の頭の中" class="level2">
 <h2 class="anchored" data-anchor-id="自分の頭の中">4.自分の頭の中</h2>
 <pre class="mermaid"><code>flowchart TB
-    subgraph Stack[" "]
+    subgraph Stack["Stack"]
         direction TB
-        BUF["name バッファ&lt;br/&gt;(0x50 bytes)"]
-        RBP["saved RBP&lt;br/&gt;(8 bytes)"]
-        RET["リターンアドレス&lt;br/&gt;(8 bytes)"]
-        BUF --&gt; RBP --&gt; RET
+        BUF["name バッファ&lt;br/&gt;80 bytes (0x50)"]
+        RBP["saved RBP&lt;br/&gt;8 bytes"]
+        RET["リターンアドレス&lt;br/&gt;8 bytes"]
+
+        BUF ~~~ RBP
+        RBP ~~~ RET
     end
-    RSP(["rsp"]) -.-&gt; BUF
-    RBPLABEL(["rbp"]) -.-&gt; RBP</code></pre>
-</section>
+
+    RSP["rsp"] -.-&gt; BUF
+    RBPLABEL["rbp"] -.-&gt; RBP
+
+    style BUF width:240px
+    style RBP width:240px
+    style RET width:240px</code></pre>
 </section>
 
 </main>
