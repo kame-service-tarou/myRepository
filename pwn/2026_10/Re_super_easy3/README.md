@@ -111,6 +111,4 @@ if __name__ == "__main__":
 
 ## 4.自分の頭の中
 
-```mermaid
-
-```
+![alt text](Re_super_easy3.drawio.png)
