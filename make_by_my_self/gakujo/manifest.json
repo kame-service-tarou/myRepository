@@ -1,0 +1,15 @@
+{
+    "name":"gakujo",
+    "version":"1.0",
+    "manifest_version":3,
+    "description":"学務情報システムの機能を追加しました",
+    "icons":{
+        
+    },
+    "content_scripts":[{
+        "matches":["https://gakujo.iess.niigata-u.ac.jp/campusweb/campusportal.do?page=main&tabId=rs"],
+        "js": [
+            "alert.js"
+        ]
+    }]
+}
